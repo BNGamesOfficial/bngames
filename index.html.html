@@ -5,37 +5,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BN GAMES</title>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="https://i.imgur.com/tOADIG5.png">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
             background: #1a1a1a;
             color: #eaeaea;
-            font-family: 'Press Start 2P', cursive;
+            font-family: 'Orbitron', sans-serif;
             margin: 0;
             padding: 0;
             overflow-x: hidden;
+            scroll-behavior: smooth;
         }
 
         header {
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: space-between;
             padding: 20px 40px;
             background: #111;
             border-bottom: 2px solid #00b0f0;
             position: relative;
+            animation: slideInDown 1s ease-in-out;
         }
 
         header img {
             width: 200px;
-            position: absolute;
-            left: -30px;
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            color: #00b0f0;
+            text-decoration: none;
+            font-size: 1.2em;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #4cc3ff;
         }
 
         h1 {
             font-size: 2.5em;
             color: #00b0f0;
             margin: 0;
+            animation: slideInLeft 1s ease-in-out;
         }
 
         .section {
@@ -57,6 +75,7 @@
             margin-bottom: 20px;
             position: relative;
             display: inline-block;
+            animation: fadeIn 1s ease-in-out;
         }
 
         h2:after {
@@ -75,6 +94,7 @@
             line-height: 1.6;
             max-width: 800px;
             margin: 0 auto;
+            animation: fadeIn 1s ease-in-out;
         }
 
         button {
@@ -87,6 +107,7 @@
             transition: background 0.3s, transform 0.3s;
             border-radius: 5px;
             margin-top: 20px;
+            animation: fadeIn 1s ease-in-out;
         }
 
         button:hover {
@@ -100,6 +121,7 @@
             background: #111;
             color: #777;
             border-top: 2px solid #00b0f0;
+            animation: fadeIn 1s ease-in-out;
         }
 
         .social-icons {
@@ -107,6 +129,7 @@
             justify-content: center;
             gap: 10px;
             margin-top: 20px;
+            animation: fadeIn 1s ease-in-out;
         }
 
         .social-icons img {
@@ -120,8 +143,8 @@
         }
 
         .social-icons .youtube {
-            width: 64px; /* Slightly larger width for YouTube */
-            height: 48px; /* Keep height consistent */
+            width: 32px;
+            height: 24px;
         }
 
         .parallax {
@@ -129,6 +152,7 @@
             height: 400px;
             position: relative;
             background-attachment: fixed;
+            animation: fadeIn 1s ease-in-out;
         }
 
         .overlay {
@@ -145,6 +169,7 @@
             font-size: 2.5em;
             margin: 0;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+            animation: fadeIn 1s ease-in-out;
         }
 
         .section .content {
@@ -154,8 +179,8 @@
         }
 
         .games-grid {
-            display: flex;
-            flex-direction: column;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
             margin-top: 20px;
         }
@@ -169,6 +194,18 @@
 
         .games-grid img:hover {
             transform: scale(1.05);
+        }
+
+        .game-item {
+            background: #222;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: left;
+        }
+
+        .game-item h3 {
+            color: #00b0f0;
+            margin: 0 0 10px;
         }
 
         .contact-email {
@@ -187,23 +224,36 @@
             color: #4cc3ff;
         }
 
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 2em;
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
             }
-
-            h2 {
-                font-size: 1.5em;
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
+        }
 
-            button {
-                width: 100%;
-                box-sizing: border-box;
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-100%);
             }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
 
-            header img {
-                width: 150px;
-                left: 20px;
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-100%);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
     </style>
@@ -211,55 +261,75 @@
 
 <body>
     <header>
-        <img src="https://i.imgur.com/YFut0Sx.png" alt="BN GAMES Logo">
+        <img src="New_file-removebg-preview.png" alt="BN GAMES Logo">
         <h1>BN GAMES</h1>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#games">Games</a>
+            <a href="#news">News</a>
+            <a href="#community">Community</a>
+            <a href="#contact">Contact</a>
+        </nav>
     </header>
-    <div class="parallax">
+    <div id="home" class="parallax">
         <div class="overlay">
             <h2>Welcome to BN GAMES!</h2>
         </div>
     </div>
-    <div class="section">
+    <div id="about" class="section">
         <h2>About Us</h2>
         <div class="content">
-            <p>I'm a young game developer. I am creating my own game as a 12yr old while also focusing on my studies. Stay tuned to see my new games too!</p>
+            <p>I'm a young game developer. I am creating my own game as a 12-year-old while also focusing on my studies. Stay tuned to see my new games too!</p>
         </div>
     </div>
-    <div class="section">
+    <div id="games" class="section">
         <h2>Featured Games</h2>
         <div class="games-grid">
-            <img src="https://source.unsplash.com/800x600/?game">
-            <img src="https://source.unsplash.com/800x600/?action-game">
-            <img src="https://source.unsplash.com/800x600/?puzzle-game">
+            <div class="game-item">
+                <h3>Game 1</h3>
+                <p>Explore the abandoned workspace to find the whereabouts of your missing friend.</p>
+                <img src="https://source.unsplash.com/800x600/?game" alt="Game 1">
+            </div>
+            <div class="game-item">
+                <h3>Game 2</h3>
+                <p>Battle fierce opponents in this fast-paced action game.</p>
+                <img src="https://source.unsplash.com/800x600/?action-game" alt="Game 2">
+            </div>
+            <div class="game-item">
+                <h3>Game 3</h3>
+                <p>Solve intricate puzzles in this mind-bending puzzle game.</p>
+                <img src="https://source.unsplash.com/800x600/?puzzle-game" alt="Game 3">
+            </div>
         </div>
     </div>
-    <div class="section">
+    <div id="news" class="section">
         <h2>Latest News</h2>
         <div class="content">
-            <p>Stay updated with the latest news in the gaming world. From game releases to exclusive interviews with top developers, we've got you covered.</p>
+            <p>Stay updated with the latest news</p>
         </div>
     </div>
-    <div class="section">
+    <div id="community" class="section">
         <h2>Community</h2>
         <div class="content">
-            <p>Join our vibrant community of gamers. Share your experiences, discuss your favorite games, and connect with like-minded enthusiasts.</p>
+            <p>Join our community to discuss games, share your thoughts, and connect with other gamers.</p>
         </div>
     </div>
-    <div class="section">
+    <div id="contact" class="section">
         <h2>Contact Us</h2>
         <div class="content">
-            <p>Have questions or feedback? We would love to hear from you. Reach out to us through our contact page.</p>
-            <p class="contact-email">Email: <a href="mailto:dev.bngames@gmail.com">dev.bngames@gmail.com</a></p>
-        </div>
-    </div>
-    <div class="section">
-        <h2>Follow Us</h2>
-        <div class="social-icons">
-            <a href="https://www.youtube.com/channel/UC7ajpXhTEkgE7wPIaoqovZg"><img class="youtube" src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png" alt="YouTube"></a>
+            <p>If you have any questions or feedback, feel free to reach out to us.</p>
+            <p class="contact-email">Email: <a href="mailto:contact@bngames.com">contact@bngames.com</a></p>
         </div>
     </div>
     <footer>
-        <p>© 2024 BN GAMES. All rights reserved.</p>
+        <p>&copy; 2024 BN GAMES. All rights reserved.</p>
+        <div class="social-icons">
+            <a href="#"><img src="https://img.icons8.com/ios-glyphs/30/00b0f0/facebook-new.png" alt="Facebook"></a>
+            <a href="#"><img src="https://img.icons8.com/ios-glyphs/30/00b0f0/twitter.png" alt="Twitter"></a>
+            <a href="#"><img src="https://img.icons8.com/ios-glyphs/30/00b0f0/instagram-new.png" alt="Instagram"></a>
+            <a href="#"><img src="https://img.icons8.com/ios-glyphs/30/00b0f0/youtube-play.png" alt="YouTube"></a>
+        </div>
     </footer>
 </body>
 
